@@ -97,8 +97,12 @@ function transpose() {
         else {
             if (!(possibleChars.includes(input[i]))) {
                 var result = numberToNoteName(input.substring(startPos, i))
-                if (typeof result == "string") output += noteNameToNumber(transposeNote(fromKey, result))
-                else output += "?".repeat(i - startPos)
+                if (typeof result == "string") {
+                    output += "<span class='text-success'>" + noteNameToNumber(transposeNote(fromKey, result)) + "</span>"
+                }
+                else {
+                    output += "<span class='text-danger'>" + "?".repeat(i - startPos) + "</span>"
+                }
                 if ("1".charCodeAt(0) <= input.charCodeAt(i) && input.charCodeAt(i) <= "7".charCodeAt(0)) {
                     startPos = i
                 } else {
@@ -109,5 +113,8 @@ function transpose() {
         }
     }
 
-    $('#output').val(output.slice(0, -1)) //remove space character
+    output = output.slice(0, -1) //remove space character
+    output = output.replace(/(?:\r\n|\r|\n)/g, '<br>') //replace all line breaks with <br>
+    if (output.length == 0) output = "<br>".repeat(5)
+    $("#output").html(output)
 }

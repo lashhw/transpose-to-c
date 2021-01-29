@@ -44,11 +44,13 @@
             </div>
             <div class="mb-1">
                 <label for="input" class="form-label">Input</label>
-                <textarea class="form-control" id="input" rows="5" placeholder="Enter any note you want to transpose. Whitespaces, newlines or any special characters are allowed.&#10;Example: 1 2' 3.. 4# 5b.&#10;(Notice: 5.b is an illegal expression. Accidentals should always place before dots.)"></textarea>
+                <textarea class="form-control font-monospace" id="input" rows="5" placeholder="Enter any note you want to transpose. Whitespaces, newlines or any special characters are allowed.&#10;Example: 1 2' 3.. 4# 5b.&#10;(Notice: 5.b is an illegal expression. Accidentals should always place before dots.)"></textarea>
             </div>
             <div class="mb-3">
                 <label for="output" class="form-label">Output</label>
-                <textarea readonly class="form-control" id="output" rows="5"></textarea>
+                <div class="bg-light border rounded py-2 px-3 font-monospace" id="output">
+                    <br><br><br><br><br>
+                </div>
             </div>
             <button type="button" class="btn btn-primary" onclick="transpose()">Transpose!</button>
         </form>
