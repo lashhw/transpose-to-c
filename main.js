@@ -12,7 +12,7 @@ function numberToNoteName(number) {
     const shiftDownChars = ['.', ',']
     const shiftUpChars = ['`', '\'']
 
-    if (!(number[0] in dict)) return undefined //error
+    if (!(number[0] in dict)) return undefined // error
     else result.push(dict[number[0]])
 
     var curr = 1
@@ -31,16 +31,16 @@ function numberToNoteName(number) {
                 shift--
                 lastShift = -1
             }
-            else return undefined //error
+            else return undefined // error
         }
         else if (shiftUpChars.includes(number[curr])) {
             if (lastShift >= 0) {
                 shift++
                 lastShift = 1
             }
-            else return undefined //error
+            else return undefined // error
         }
-        else return undefined //error
+        else return undefined // error
     }
     result.push(String.fromCharCode("4".charCodeAt(0) + shift))
     
@@ -109,8 +109,7 @@ function transpose() {
         }
     }
 
-    output = output.slice(0, -1) //remove space character
-    output = output.replace(/(?:\r\n|\r|\n)/g, '<br>') //replace all line breaks with <br>
+    output = output.slice(0, -1) // remove space character at end
     if (output.length == 0) output = "<br>".repeat(5)
     $("#output").html(output)
 }
