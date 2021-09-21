@@ -103,12 +103,8 @@ function transpose() {
                 else {
                     output += "<span class='text-danger'>" + "?".repeat(i - startPos) + "</span>"
                 }
-                if ("1".charCodeAt(0) <= input.charCodeAt(i) && input.charCodeAt(i) <= "7".charCodeAt(0)) {
-                    startPos = i
-                } else {
-                    startPos = -1
-                    output += input[i]
-                }
+                startPos = -1;
+                i--;
             }
         }
     }
